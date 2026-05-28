@@ -202,6 +202,11 @@ strong {
   gap: 12px;
 }
 
+.project:nth-child(2) .project-media {
+  width: 90%;
+  justify-self: end;
+}
+
 .project-media img,
 .project-media video {
   width: 100%;
