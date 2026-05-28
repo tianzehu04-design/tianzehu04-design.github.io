@@ -184,6 +184,8 @@ strong {
 
 .project-text {
   max-width: 520px;
+  background: #f7f7f7;
+  padding: 30px 32px;
 }
 
 .project-title {
