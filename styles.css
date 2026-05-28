@@ -204,7 +204,7 @@ strong {
 
 .project:nth-child(2) .project-media {
   width: 90%;
-  justify-self: end;
+  justify-self: center;
 }
 
 .project-media img,
