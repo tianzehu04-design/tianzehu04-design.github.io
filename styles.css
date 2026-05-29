@@ -125,7 +125,7 @@ video {
 .portrait {
   justify-self: center;
   width: min(290px, 100%);
-  transform: translate(-54px, 0);
+  transform: translate(0, 28px);
 }
 
 h1,
@@ -213,6 +213,10 @@ strong {
 .project:nth-child(n+2) .project-media {
   width: 80%;
   justify-self: center;
+}
+
+.project:nth-child(3) .project-media {
+  width: 90%;
 }
 
 .project-media img,
@@ -415,17 +419,28 @@ strong {
   overflow: hidden;
   background: #f3f3f3;
   text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
 }
 
 .photo-grid img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease, transform 180ms ease;
 }
 
-.photo-grid a:hover img {
+.photo-grid a:hover,
+.photo-grid a:focus-visible {
+  z-index: 2;
+  transform: scale(1.045);
+  box-shadow: 0 16px 30px rgba(17, 20, 35, 0.18);
+  filter: saturate(1.04);
+}
+
+.photo-grid a:hover img,
+.photo-grid a:focus-visible img {
   opacity: 0.72;
+  transform: scale(1.03);
 }
 
 .travel-status {
