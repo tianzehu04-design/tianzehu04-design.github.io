@@ -184,16 +184,16 @@ strong {
 
 .project {
   display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(320px, 0.96fr);
-  gap: 4.5vw;
+  grid-template-columns: minmax(0, 0.88fr) minmax(340px, 1.04fr);
+  gap: 3vw;
   align-items: start;
-  padding: 0 1.5vw;
+  padding: 0 1vw;
 }
 
 .project-text {
-  max-width: 520px;
+  max-width: 500px;
   background: #f7f7f7;
-  padding: 30px 32px;
+  padding: 26px 28px;
 }
 
 .project-title {
@@ -211,11 +211,16 @@ strong {
 }
 
 .project:nth-child(n+2) .project-media {
-  width: 80%;
+  width: 84%;
   justify-self: center;
 }
 
 .project:nth-child(3) .project-media {
+  width: 100%;
+  gap: 20px;
+}
+
+.project:nth-child(4) .project-media {
   width: 90%;
 }
 
@@ -554,9 +559,13 @@ strong {
   }
 
   .project {
-    gap: 28px;
+    gap: 20px;
     padding-top: 0;
     padding-bottom: 0;
+  }
+
+  .project:nth-child(3) .project-media {
+    gap: 18px;
   }
 
   .project-list {
