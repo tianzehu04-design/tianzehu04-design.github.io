@@ -221,6 +221,10 @@ strong {
   justify-self: center;
 }
 
+.project:nth-child(2) .project-media {
+  width: 64%;
+}
+
 .project:nth-child(3) .project-media {
   width: 86%;
   gap: 20px;
@@ -307,6 +311,7 @@ strong {
 
 .carousel-wrap {
   position: relative;
+  z-index: 1;
 }
 
 .carousel {
@@ -331,7 +336,6 @@ strong {
   flex: 0 0 369px;
   margin: 0;
   scroll-snap-align: start;
-  transition: transform 180ms ease, filter 180ms ease;
 }
 
 .carousel.is-looping .carousel-card {
@@ -342,7 +346,7 @@ strong {
   width: 369px;
   height: 370px;
   object-fit: cover;
-  transition: box-shadow 180ms ease;
+  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
 }
 
 .carousel-card a {
@@ -350,16 +354,12 @@ strong {
   text-decoration: none;
 }
 
-.carousel-card:hover,
-.carousel-card:focus-within {
+.carousel-card:hover img,
+.carousel-card:focus-within img {
   position: relative;
   z-index: 3;
   transform: scale(1.045);
   filter: saturate(1.04);
-}
-
-.carousel-card:hover img,
-.carousel-card:focus-within img {
   box-shadow: 0 18px 34px rgba(17, 20, 35, 0.22);
 }
 
@@ -374,7 +374,7 @@ strong {
 .carousel-arrow {
   position: absolute;
   top: 164px;
-  z-index: 2;
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
