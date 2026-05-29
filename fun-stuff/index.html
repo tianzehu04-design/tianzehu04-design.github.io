@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Fun Stuff — Tianze's Research Portfolio</title>
     <meta name="description" content="Photos, travel, and personal projects from Tianze Hu.">
-    <link rel="stylesheet" href="../styles.css?v=4">
+    <link rel="stylesheet" href="../styles.css?v=5">
   </head>
   <body>
     <header class="site-header">
@@ -119,15 +119,30 @@
     <script>
       const carouselLoops = new Map();
 
+      function makeCarouselImagesClickable(cards) {
+        cards.forEach((card) => {
+          const img = card.querySelector("img");
+          if (!img || img.closest("a")) return;
+          const link = document.createElement("a");
+          link.href = img.currentSrc || img.src;
+          link.setAttribute("aria-label", img.alt || "Open image");
+          img.parentNode.insertBefore(link, img);
+          link.appendChild(img);
+        });
+      }
+
       function setupInfiniteCarousel(carousel) {
         const originals = Array.from(carousel.children);
         if (!originals.length) return;
+        makeCarouselImagesClickable(originals);
 
         originals.forEach((card) => {
           const before = card.cloneNode(true);
           const after = card.cloneNode(true);
           before.setAttribute("aria-hidden", "true");
           after.setAttribute("aria-hidden", "true");
+          before.querySelectorAll("a").forEach((link) => { link.tabIndex = -1; });
+          after.querySelectorAll("a").forEach((link) => { link.tabIndex = -1; });
           carousel.insertBefore(before, carousel.firstChild);
           carousel.appendChild(after);
         });
@@ -137,6 +152,7 @@
         carousel.scrollLeft = segmentWidth;
 
         let currentScroll = carousel.scrollLeft;
+        let autoScroll = true;
         let isResetting = false;
 
         function normalizeScroll() {
@@ -159,8 +175,15 @@
           normalizeScroll();
         }, { passive: true });
 
+        const hoverTarget = carousel.closest(".carousel-wrap") || carousel;
+        hoverTarget.addEventListener("mouseenter", () => { autoScroll = false; });
+        hoverTarget.addEventListener("mouseleave", () => { autoScroll = true; });
+        hoverTarget.addEventListener("focusin", () => { autoScroll = false; });
+        hoverTarget.addEventListener("focusout", () => { autoScroll = true; });
+
         function tick() {
-          if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          const userIsInteracting = hoverTarget.matches(":hover") || hoverTarget.matches(":focus-within");
+          if (autoScroll && !userIsInteracting && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
             currentScroll += 0.24;
             carousel.scrollLeft = currentScroll;
             normalizeScroll();
