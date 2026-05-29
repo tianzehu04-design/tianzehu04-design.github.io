@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Fun Stuff — Tianze's Research Portfolio</title>
     <meta name="description" content="Photos, travel, and personal projects from Tianze Hu.">
-    <link rel="stylesheet" href="../styles.css?v=2">
+    <link rel="stylesheet" href="../styles.css?v=4">
   </head>
   <body>
     <header class="site-header">
@@ -117,11 +117,69 @@
     <footer class="site-footer"></footer>
 
     <script>
+      const carouselLoops = new Map();
+
+      function setupInfiniteCarousel(carousel) {
+        const originals = Array.from(carousel.children);
+        if (!originals.length) return;
+
+        originals.forEach((card) => {
+          const before = card.cloneNode(true);
+          const after = card.cloneNode(true);
+          before.setAttribute("aria-hidden", "true");
+          after.setAttribute("aria-hidden", "true");
+          carousel.insertBefore(before, carousel.firstChild);
+          carousel.appendChild(after);
+        });
+
+        carousel.classList.add("is-looping");
+        const segmentWidth = carousel.scrollWidth / 3;
+        carousel.scrollLeft = segmentWidth;
+
+        let currentScroll = carousel.scrollLeft;
+        let isResetting = false;
+
+        function normalizeScroll() {
+          if (isResetting) return;
+          if (carousel.scrollLeft < segmentWidth * 0.55) {
+            isResetting = true;
+            carousel.scrollLeft += segmentWidth;
+            currentScroll = carousel.scrollLeft;
+            isResetting = false;
+          } else if (carousel.scrollLeft > segmentWidth * 1.45) {
+            isResetting = true;
+            carousel.scrollLeft -= segmentWidth;
+            currentScroll = carousel.scrollLeft;
+            isResetting = false;
+          }
+        }
+
+        carousel.addEventListener("scroll", () => {
+          currentScroll = carousel.scrollLeft;
+          normalizeScroll();
+        }, { passive: true });
+
+        function tick() {
+          if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            currentScroll += 0.24;
+            carousel.scrollLeft = currentScroll;
+            normalizeScroll();
+          }
+          requestAnimationFrame(tick);
+        }
+
+        requestAnimationFrame(tick);
+        carouselLoops.set(carousel.id, { carousel, segmentWidth });
+      }
+
       function moveCarousel(id, direction) {
-        const carousel = document.getElementById(id);
+        const loop = carouselLoops.get(id);
+        const carousel = loop?.carousel || document.getElementById(id);
         if (!carousel) return;
         carousel.scrollBy({ left: direction * 389, behavior: "smooth" });
       }
+
+      document.querySelectorAll(".carousel").forEach(setupInfiniteCarousel);
 
       document.querySelectorAll("[data-carousel-prev]").forEach((button) => {
         button.addEventListener("click", () => moveCarousel(button.dataset.carouselPrev, -1));
