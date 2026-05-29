@@ -125,7 +125,7 @@ video {
 .portrait {
   justify-self: center;
   width: min(290px, 100%);
-  transform: translate(-28px, 18px);
+  transform: translate(-46px, 34px);
 }
 
 h1,
@@ -185,9 +185,9 @@ strong {
 .project {
   display: grid;
   grid-template-columns: minmax(0, 0.92fr) minmax(320px, 0.96fr);
-  gap: 7.5vw;
+  gap: 4.5vw;
   align-items: start;
-  padding: 0 3vw;
+  padding: 0 1.5vw;
 }
 
 .project-text {
@@ -211,7 +211,7 @@ strong {
 }
 
 .project:nth-child(2) .project-media {
-  width: 90%;
+  width: 80%;
   justify-self: center;
 }
 
@@ -296,12 +296,12 @@ strong {
 
 .carousel {
   display: flex;
-  gap: 20px;
+  gap: 24px;
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scroll-snap-type: x proximity;
   scrollbar-width: none;
-  padding: 0 3vw 18px;
+  padding: 10px 3vw 34px;
 }
 
 .carousel.is-looping {
@@ -316,6 +316,7 @@ strong {
   flex: 0 0 369px;
   margin: 0;
   scroll-snap-align: start;
+  transition: transform 180ms ease, filter 180ms ease;
 }
 
 .carousel.is-looping .carousel-card {
@@ -326,11 +327,25 @@ strong {
   width: 369px;
   height: 370px;
   object-fit: cover;
+  transition: box-shadow 180ms ease;
 }
 
 .carousel-card a {
   display: block;
   text-decoration: none;
+}
+
+.carousel-card:hover,
+.carousel-card:focus-within {
+  position: relative;
+  z-index: 3;
+  transform: scale(1.045);
+  filter: saturate(1.04);
+}
+
+.carousel-card:hover img,
+.carousel-card:focus-within img {
+  box-shadow: 0 18px 34px rgba(17, 20, 35, 0.22);
 }
 
 .carousel-card figcaption {
