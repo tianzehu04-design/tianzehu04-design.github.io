@@ -110,7 +110,7 @@ video {
 }
 
 .hero-video + .sqs-section {
-  padding-top: 150px;
+  padding-top: 95px;
 }
 
 .hero-video + .sqs-section .content-grid {
@@ -144,9 +144,12 @@ h1 {
   font-size: 48px;
 }
 
-h2,
-.section-title {
+h2 {
   font-size: 43px;
+}
+
+.section-title {
+  font-size: 34px;
 }
 
 h3 {
@@ -174,6 +177,7 @@ strong {
 }
 
 .research-section .section-title {
+  margin-left: 28px;
   margin-bottom: 54px;
 }
 
@@ -516,8 +520,13 @@ strong {
 }
 
 @media (min-width: 901px) {
+  .hero-video + .sqs-section .content-grid {
+    width: calc(100% - 28px);
+    margin-left: 28px;
+  }
+
   .portrait {
-    transform: translate(-80px, 28px);
+    transform: translate(-66px, 28px);
   }
 }
 
