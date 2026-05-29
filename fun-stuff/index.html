@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Fun Stuff — Tianze's Research Portfolio</title>
     <meta name="description" content="Photos, travel, and personal projects from Tianze Hu.">
-    <link rel="icon" type="image/png" href="/assets/images/site-icon.png?v=2">
+    <link rel="icon" type="image/png" href="/assets/images/site-icon.png?v=3">
     <link rel="stylesheet" href="../styles.css?v=9">
   </head>
   <body>
@@ -221,7 +221,15 @@
         const loop = carouselLoops.get(id);
         const carousel = loop?.carousel || document.getElementById(id);
         if (!carousel) return;
-        carousel.scrollBy({ left: direction * 389, behavior: "smooth" });
+        const distance = 389;
+        if (loop?.segmentWidth) {
+          if (direction < 0 && carousel.scrollLeft - distance < loop.segmentWidth * 0.58) {
+            carousel.scrollLeft += loop.segmentWidth;
+          } else if (direction > 0 && carousel.scrollLeft + distance > loop.segmentWidth * 1.42) {
+            carousel.scrollLeft -= loop.segmentWidth;
+          }
+        }
+        carousel.scrollBy({ left: direction * distance, behavior: "smooth" });
       }
 
       document.querySelectorAll(".carousel").forEach(setupInfiniteCarousel);
