@@ -184,10 +184,10 @@ strong {
 
 .project {
   display: grid;
-  grid-template-columns: minmax(0, 0.88fr) minmax(340px, 1.04fr);
-  gap: 3vw;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.94fr);
+  gap: 3.5vw;
   align-items: start;
-  padding: 0 1vw;
+  padding: 0 3vw 0 4.5vw;
 }
 
 .project-text {
@@ -208,20 +208,22 @@ strong {
 .project-media {
   display: grid;
   gap: 12px;
+  width: 88%;
+  justify-self: center;
 }
 
 .project:nth-child(n+2) .project-media {
-  width: 84%;
+  width: 76%;
   justify-self: center;
 }
 
 .project:nth-child(3) .project-media {
-  width: 100%;
+  width: 86%;
   gap: 20px;
 }
 
 .project:nth-child(4) .project-media {
-  width: 90%;
+  width: 80%;
 }
 
 .project-media img,
@@ -511,6 +513,12 @@ strong {
   padding: 28px 3vw 42px;
   color: #555;
   font-size: 14px;
+}
+
+@media (min-width: 901px) {
+  .portrait {
+    transform: translate(-140px, 28px);
+  }
 }
 
 @media (max-width: 900px) {
