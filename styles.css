@@ -110,7 +110,7 @@ video {
 }
 
 .hero-video + .sqs-section {
-  padding-top: 240px;
+  padding-top: 150px;
 }
 
 .hero-video + .sqs-section .content-grid {
@@ -191,7 +191,7 @@ strong {
 }
 
 .project-text {
-  max-width: 500px;
+  max-width: 560px;
   background: #f7f7f7;
   padding: 26px 28px;
 }
@@ -242,7 +242,7 @@ strong {
 }
 
 .simple-page {
-  width: min(940px, calc(100% - 6vw));
+  width: min(1080px, calc(100% - 6vw));
   margin: 0 auto;
   padding: 48px 0 100px;
 }
@@ -517,7 +517,7 @@ strong {
 
 @media (min-width: 901px) {
   .portrait {
-    transform: translate(-140px, 28px);
+    transform: translate(-80px, 28px);
   }
 }
 
