@@ -233,6 +233,10 @@ strong {
   gap: 38px;
 }
 
+.simple-page h3:not(:first-child) {
+  margin-top: 58px;
+}
+
 .publication h2 {
   margin-bottom: 12px;
   font-family: "Proxima Nova", "Helvetica Neue", Arial, sans-serif;

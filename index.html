@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tianze's Research Portfolio</title>
     <meta name="description" content="Research portfolio for Tianze Hu, focused on soft robotics, bio-inspired robotics, mechanical computation, and textiles.">
-    <link rel="stylesheet" href="styles.css?v=9">
+    <link rel="stylesheet" href="styles.css?v=10">
   </head>
   <body>
     <header class="site-header">
@@ -31,7 +31,7 @@
         <div class="content-grid">
           <div class="copy">
             <h3>Tianze Hu</h3>
-            <p>I recently graduated with a B.S.E. in Mechanical Engineering from the University of Michigan. My work sits at the intersection of <strong>soft robotics, bio-inspired robotics, mechanical computation, and textiles</strong>. I build pneumatic fabric circuits that embed sensing, logic, and actuation directly into inflatable devices, help develop a snail-inspired robot that collects microplastics on lakes, and design porous monoliths to scrub toxic gases from EV battery thermal runaway. Broadly, I’m excited about <strong>structures that can think and act with minimal electronics</strong>, especially in wearable assistive devices and sustainable environmental robots.</p>
+            <p>I recently graduated with a B.S.E. in Mechanical Engineering from the University of Michigan and will join Northwestern University as an incoming Ph.D. student in Mechanical Engineering in September 2026. My undergraduate work sat at the intersection of <strong>soft robotics, bio-inspired robotics, mechanical computation, and textiles</strong>. I built pneumatic fabric circuits that embedded sensing, logic, and actuation directly into inflatable devices, helped develop a snail-inspired robot that collected microplastics from lakes, and designed porous monolith concepts for mitigating toxic gases from EV battery thermal runaway. Those projects shaped my interest in <strong>structures that can think and act with minimal electronics</strong>, especially in wearable assistive devices and sustainable environmental robots.</p>
             <p>I enjoy meeting people with diverse backgrounds and ideas—feel free to reach out by email if you’d like to chat or collaborate.</p>
           </div>
           <img class="portrait" src="assets/images/image-01.webp" alt="Tianze Hu">
@@ -45,8 +45,8 @@
           <article class="project">
             <div class="project-text">
               <p class="project-title"><strong>Fabric Logic Library: A Framework for Integrated Mechanical Circuitry in Smart Pneumatic Fabrics</strong></p>
-              <p class="project-meta">T. Hu, T. Li, K. Benli, J. Luntz, D. Brei.<br>Presented at SMASIS 2025; Journal of Intelligent Material Systems and Structures (JIMSS), in press 2026</p>
-              <p>To enable predictable, electronics-light control in soft robots and wearables, I develop a fabric-native library of pneumatic logic elements, including porous resistors, channels, vias, pouch capacitors, and kink-based threshold valves. Each component is modeled from first principles, using experimentally identified parameters, and implemented in Simscape as swappable building blocks. By composing these primitives, I design a pneumatic “transistor” and a three-stage ring oscillator whose frequency and timing can be selected in the model and realized in laminated fabric hardware. This library demonstrates how logic, routing, and actuation can be co-designed in textiles, paving the way for garment-scale mechanical computation and control.</p>
+              <p class="project-meta">Hu, T., et al. (2026). Journal of Intelligent Material Systems and Structures (JIMSS), OnlineFirst.<br><a href="https://doi.org/10.1177/1045389X261433617">https://doi.org/10.1177/1045389X261433617</a></p>
+              <p>To enable predictable, electronics-light control in soft robots and wearables, I developed first-principles models and Simscape/Simulink simulations for a fabric-native library of pneumatic logic elements, including cotton resistors, channels and vias, pouch capacitors, and kink valves. I created a fabric-transistor abstraction, designed model-sized ring oscillators, and validated the predictions against hardware, with period-pressure trends matching experiment within 20% error. The resulting blockset and design charts supported rapid, simulation-first system design for integrated fabric logic.</p>
             </div>
             <div class="project-media">
               <img src="assets/images/image-02.png" alt="Fabric logic library research figure">
@@ -57,7 +57,7 @@
             <div class="project-text">
               <p class="project-title"><strong>Pneumatic Fabric Logic: Logic Gates and Memory in Laminated Textiles</strong></p>
               <p class="project-meta">T. Hu, T. Li, K. Benli, J. Luntz, D. Brei.<br>Presented at UM Mechanical Engineering Undergraduate Symposium 2024 &amp; 2025 (Best Poster Award 2024)</p>
-              <p>I first develop and characterize a laminated fabric kink valve as a pressure-threshold element, using TPU-coated nylon channels that fold to block flow above a tunable load. Building on this device, I construct a family of pneumatic fabric logic gates: a NOT gate based on the kink valve, NAND and NOR as primitives, and derived AND/OR functions created by composition. Finally, an all-fabric pneumatic SR latch that stores one bit of state using only pressure signals and compliant textiles is demonstrated. These results provide preliminary proof of concept for our broader effort to create scalable fabric logic for soft robots and wearable controllers.</p>
+              <p>I developed and characterized a laminated fabric kink valve as a pressure-threshold element, using TPU-coated nylon channels that folded to block flow above a tunable load. Building on this device, I constructed a family of pneumatic fabric logic gates: a NOT gate based on the kink valve, NAND and NOR as primitives, and derived AND/OR functions created by composition. Finally, I demonstrated an all-fabric pneumatic SR latch that stored one bit of state using only pressure signals and compliant textiles. These results provided preliminary proof of concept for our broader effort to create scalable fabric logic for soft robots and wearable controllers.</p>
             </div>
             <div class="project-media">
               <img src="assets/images/image-03.png" alt="Pneumatic fabric logic gate figure">
@@ -68,7 +68,7 @@
             <div class="project-text">
               <p class="project-title"><strong>Thermal Runaway Product-Gas Mitigation with a Monolith HF Converter</strong></p>
               <p class="project-meta">F. Lu, T. Hu, K. Nathani, M. Kaviany<br>Under Preparation 2025</p>
-              <p>We analyze the fate of thermal-runaway (TR) product gas in a GM Blazer EV battery pack and design add-on components to keep pressure, temperature, HF, and particles within safety limits. Using literature data and CFD, we estimate gas and particulate loads for 1-cell and 6-cell TR events, then simulate how heat is stored in the pack casing and in alumina honeycomb monoliths placed at the vents. A CaO-based washcoat on the monolith walls provides dry scrubbing to convert HF into solid CaF2, while a corrugated metallic vent filter, inspired by commercial VentPlus units, spreads particle deposition over a larger area to keep deposits thin and contained. Together, these elements illustrate a compact, passive strategy for TR heat and product-gas mitigation in EV packs.</p>
+              <p>We analyzed the fate of thermal-runaway (TR) product gas in a GM Blazer EV battery pack and designed add-on components to keep pressure, temperature, HF, and particles within safety limits. Using literature data and CFD, we estimated gas and particulate loads for 1-cell and 6-cell TR events, then simulated how heat was stored in the pack casing and in alumina honeycomb monoliths placed at the vents. A CaO-based washcoat on the monolith walls provided dry scrubbing to convert HF into solid CaF2, while a corrugated metallic vent filter, inspired by commercial VentPlus units, spread particle deposition over a larger area to keep deposits thin and contained. Together, these elements illustrated a compact, passive strategy for TR heat and product-gas mitigation in EV packs.</p>
             </div>
             <div class="project-media">
               <img src="assets/images/image-04.png" alt="Thermal runaway system figure">
@@ -81,7 +81,7 @@
             <div class="project-text">
               <p class="project-title"><strong>Snail-Inspired Robot for Marine Microplastic Removal</strong></p>
               <p class="project-meta">T. Hu, et al.<br>Capstone Design, University of Michigan, Winter 2025</p>
-              <p>This project develops a snail-inspired surface robot that collects 0.1–5 mm microplastics using an undulating intake plate and a modular collection system. The collector I designed is organized into three swappable modules: a container module with rear mesh for drainage, a one-way gate module that admits particles while resisting backflow and larger debris, and a gear module that mechanically links the intake plate to the rest of the system. Together, these modules create a compact, reconfigurable “collector cartridge” that can be installed, removed, and upgraded without altering the main robot platform.</p>
+              <p>This project developed a snail-inspired surface robot that collected 0.1–5 mm microplastics using an undulating intake plate and a modular collection system. The collector I designed was organized into three swappable modules: a container module with rear mesh for drainage, a one-way gate module that admitted particles while resisting backflow and larger debris, and a gear module that mechanically linked the intake plate to the rest of the system. Together, these modules created a compact, reconfigurable “collector cartridge” that could be installed, removed, and upgraded without altering the main robot platform.</p>
             </div>
             <div class="project-media">
               <img src="assets/images/image-07.png" alt="Snail-inspired robot collector design figure">
